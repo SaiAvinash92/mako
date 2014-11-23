@@ -1,0 +1,15 @@
+ui_print("Houston, we have a problem");
+ui_print("");
+ui_print("I am jack's complete lack of surprise");
+ui_print("");
+ui_print("Bond. James Bond");
+ui_print("");
+ui_print("Frankly, my dear, I don't give a damn");
+ui_print("");
+ui_print("Mankind was born on Earth. It was never meant to die here");
+ui_print("");
+ui_print("Never recreate from your memory. Always imagine new places");
+ui_print("");
+package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+ui_print("Enjoy nash kernel s'kers :p");
+set_progress(1.000000);
