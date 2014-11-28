@@ -2615,6 +2615,12 @@ config BRICKED_HOTPLUG
 	  This enables kernel based multi core control.
 	  (up/down hotplug based on load)
 
+config MSM_SLEEPER
+	bool "Limit max frequency while screen is off"
+	default y
+	help
+	  LLimit max frequency while screen is off  
+
 config FORCE_FAST_CHARGE
 	bool "Force AC charge mode at will"
 	default y
