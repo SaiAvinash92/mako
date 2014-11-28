@@ -2266,6 +2266,7 @@ context_switch(struct rq *rq, struct task_struct *prev,
 	spin_release(&rq->lock.dep_map, 1, _THIS_IP_);
 #endif
 
+	context_tracking_task_switch(prev, next);	
 	/* Here we just switch the register state and the stack. */
 	switch_to(prev, next, prev);
 
