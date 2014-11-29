@@ -2607,6 +2607,14 @@ config MSM_CPU_PWRCTL
 	  stand alone power collapse operation. Selecting this option
 	  ensures that they are always off.
 
+config BRICKED_HOTPLUG
+	bool "Enable kernel based mpdecision"
+	depends on MSM_RUN_QUEUE_STATS
+	default n
+	help
+	  This enables kernel based multi core control.
+	  (up/down hotplug based on load)
+
 config FORCE_FAST_CHARGE
 	bool "Force AC charge mode at will"
 	default y
