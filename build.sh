@@ -19,7 +19,7 @@ rm -rf zImage
  
 cd ../mako/
  
-zipfile="nash.Kernel-AOSP.zip"
+zipfile="nash.Kernel-CM.zip"
 echo "making zip file"
 cp boot.img zip/
  
