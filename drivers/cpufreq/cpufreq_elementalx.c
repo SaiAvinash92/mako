@@ -285,7 +285,7 @@ static ssize_t store_two_phase_freq(struct kobject *a, struct attribute *b,
 	return count;
 }
 
-static int input_event_min_freq_array[NR_CPUS] = {1026000, 810000, 810000, 810000} ;
+static int input_event_min_freq_array[NR_CPUS] = {1134000, 702000, 702000, 702000} ;
 
 static ssize_t show_input_event_min_freq
 (struct kobject *kobj, struct attribute *attr, char *buf)
