@@ -175,10 +175,10 @@ static void detect_sweep2wake(int x, int y, bool st)
                 x, y, (single_touch) ? "true" : "false");
 #endif
 
-	if (s2w_switch > 1 && s2d_enabled)
+	if ((s2w_switch > 0) && (s2d_enabled == 1))
 		s2d_enabled = 0;
 
-	// s2w: left->right
+	//left->right
 	if ((single_touch) && (scr_suspended == true) && (s2w_switch == 1)) {
 		prevx = 0;
 		nextx = S2W_X_B1;
@@ -207,35 +207,7 @@ static void detect_sweep2wake(int x, int y, bool st)
 				}
 			}
 		}
-		// s2w: right->left
-		r_prevx = (S2W_X_MAX - S2W_X_FINAL);
-		r_nextx = S2W_X_B2;
-		if ((r_barrier[0] == true) ||
-		   ((x < r_prevx) &&
-		    (x > r_nextx) &&
-		    (y < S2W_Y_LIMIT))) {
-			r_prevx = r_nextx;
-			r_nextx = S2W_X_B1;
-			r_barrier[0] = true;
-			if ((r_barrier[1] == true) ||
-			   ((x < r_prevx) &&
-			    (x > r_nextx) &&
-			    (y < S2W_Y_LIMIT))) {
-				r_prevx = r_nextx;
-				r_barrier[1] = true;
-				if ((x < r_prevx) &&
-				    (y < S2W_Y_LIMIT)) {
-					if (x < S2W_X_FINAL) {
-						if (exec_count) {
-							pr_info(LOGTAG"ON\n");
-							sweep2wake_pwrtrigger();
-							exec_count = false;
-						}
-					}
-				}
-			}
-		}
-	// s2s: right->left
+	//right->left
 	} else if ((single_touch) && (scr_suspended == false) && (s2w_switch > 0) && (s2d_enabled == 0)) {
 		scr_on_touch=true;
 		prevx = (S2W_X_MAX - S2W_X_FINAL);
@@ -265,7 +237,6 @@ static void detect_sweep2wake(int x, int y, bool st)
 				}
 			}
 		}
-		// s2s: left->right
 		r_prevx = S2W_X_B0;
 		r_nextx = S2W_X_B3;
 		if ((r_barrier[0] == true) ||
@@ -293,7 +264,6 @@ static void detect_sweep2wake(int x, int y, bool st)
 				}
 			}
 		}
-	// s2d: right->left
 	}  else if ((single_touch) && (scr_suspended == false) && (s2d_enabled == 1)) {
 		scr_on_touch=true;
 		prevx = (S2W_X_MAX - S2W_X_FINAL);
@@ -323,7 +293,6 @@ static void detect_sweep2wake(int x, int y, bool st)
 				}
 			}
 		}
-		// s2d: left->right
 		r_prevx = S2W_X_B0;
 		r_nextx = S2W_X_B3;
 		if ((r_barrier[0] == true) ||
