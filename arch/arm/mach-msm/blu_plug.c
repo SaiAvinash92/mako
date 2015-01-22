@@ -469,7 +469,7 @@ static __ref int set_max_freq_screenoff(const char *val, const struct kernel_par
 	ret = kstrtouint(val, 10, &i);
 	if (ret)
 		return -EINVAL;
-	if (i < 384000 || i > 1512000)
+	if (i < 192000 || i > 1512000)
 		return -EINVAL;
 
 	ret = param_set_uint(val, kp);
